@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS. Homework 2</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div id="box">Задача №3</div>
+    <script>
+        // Задача 1
+        console.log('Задача №1');
+        var myArray = ['Hello', 'Oranges', 'Age'];
+        var length = myArray[0].length;
+        var result = "";
+
+        for(var i in myArray) {
+            if(myArray[i].length > length){
+                length = myArray[i].length;
+                result = myArray[i];
+            }
+        }
+
+        console.log(`Самое длинное слово: ${result}`);
+
+        myArray.length = 0;
+        for(var el of result) {
+            myArray.push('\'' + el + '\'');
+        }
+        console.log(myArray);
+
+        // Задача 2
+        var myText = prompt('Задача №2.\nВведите текст:');
+        var myFontColor = prompt('Введите цвет текста:');
+        var myFontSize = +prompt('Введите размер шрифта:');
+
+        marker(myText, myFontColor, myFontSize);
+
+        function marker(text, color, size) {
+            document.write (
+                `<p style="font-family: Comic Sans MS; font-size: 30">Задача №2.\n</p>` +
+                `<p style="font-family: Comic Sans MS; color:${color};
+                font-size: ${size}px;">${text}</p>`
+            )
+        };
+
+        // Задача 3
+        var myArray2 = [];
+        myArray2 = ['images/nature.jpg', 'images/tree.jpg'];
+        while(true){
+            if(confirm('Добавить изображение?')){
+                myArray2.push(prompt('Введите путь:'));
+            }
+            else
+            break;
+        }
+        placeImages(myArray2);
+
+        function placeImages(imagesArray) {
+            for(var el of imagesArray) {
+                box.innerHTML+=
+                `<div class ="newDiv"><img src="${el}"></div>`
+            }
+        }
+
+    </script>
+</body>
+</html>
